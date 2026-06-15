@@ -37,13 +37,15 @@ to reveal the hidden contents.
 
 ## Installation
 
-### Manual
+### From a release (recommended)
 
-1. Build the plugin (see below) or download a release.
-2. Copy `main.js`, `manifest.json`, and `styles.css` (if present) into your
-   vault at `<vault>/.obsidian/plugins/obsidian-spoiler-plugin/`.
-3. Reload Obsidian and enable **Spoiler Plugin** in *Settings → Community
-   plugins*.
+1. Download `obsidian-spoiler-plugin_v0.1.zip` from the
+   [latest release](https://github.com/PatruusBarba/ObsidianSpoilerPlugin/releases/latest).
+2. Unzip it into your vault's plugins folder so you end up with
+   `<vault>/.obsidian/plugins/obsidian-spoiler-plugin/` containing `main.js` and
+   `manifest.json`.
+3. Reload Obsidian and enable **Spoiler** in *Settings → Community plugins*
+   (you may need to turn off *Restricted mode* first).
 
 ### Building from source
 
@@ -51,6 +53,10 @@ to reveal the hidden contents.
 npm install
 npm run build
 ```
+
+This produces `main.js`. Copy it together with `manifest.json` into
+`<vault>/.obsidian/plugins/obsidian-spoiler-plugin/`, then reload Obsidian and
+enable the plugin as above.
 
 ## License
 
