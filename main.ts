@@ -4,8 +4,6 @@ import { Editor, MarkdownView, Notice, Plugin } from "obsidian";
 const SPOILER_HEADER = /^>\s*\[!spoiler\]-?/i;
 /** Matches the header line once the leading callout marker (`> `) is stripped. */
 const SPOILER_HEADER_STRIPPED = /^\[!spoiler\]-?/i;
-/** Matches a fenced code block delimiter (``` optionally followed by a language). */
-const CODE_FENCE = /^```/;
 
 /**
  * Returns true when the given selection already is a spoiler callout, i.e. its
@@ -35,10 +33,10 @@ export function wrapSpoiler(text: string): string {
 }
 
 /**
- * Reverses {@link wrapSpoiler}: strips the callout markers, drops the
- * `[!spoiler]` header and returns the inner content. For backwards
- * compatibility it also strips a surrounding fenced code block if one is
- * present (the format used by earlier versions).
+ * Reverses {@link wrapSpoiler}: removes the callout marker (`> `) from every
+ * line and drops the `[!spoiler]` header, returning the inner content exactly
+ * as it was before wrapping. The content itself is never altered, so a
+ * selection that contains code fences (```) round-trips unchanged.
  */
 export function unwrapSpoiler(text: string): string {
 	// Remove the callout marker (`> ` or `>`) from every line.
@@ -52,27 +50,8 @@ export function unwrapSpoiler(text: string): string {
 			break;
 		}
 	}
-	let body = lines.slice(start);
 
-	// If the body is wrapped in a fenced code block, strip the fences.
-	const first = body.findIndex((line) => line.trim() !== "");
-	let last = -1;
-	for (let i = body.length - 1; i >= 0; i--) {
-		if (body[i].trim() !== "") {
-			last = i;
-			break;
-		}
-	}
-	if (
-		first !== -1 &&
-		last > first &&
-		CODE_FENCE.test(body[first].trim()) &&
-		CODE_FENCE.test(body[last].trim())
-	) {
-		body = body.slice(first + 1, last);
-	}
-
-	return body.join("\n");
+	return lines.slice(start).join("\n");
 }
 
 export default class SpoilerPlugin extends Plugin {

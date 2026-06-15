@@ -39,7 +39,7 @@ to reveal the hidden contents.
 
 ### From a release (recommended)
 
-1. Download `obsidian-spoiler-plugin_v0.2.zip` from the
+1. Download `obsidian-spoiler-plugin_v0.2.1.zip` from the
    [latest release](https://github.com/PatruusBarba/ObsidianSpoilerPlugin/releases/latest).
 2. Unzip it into your vault's plugins folder so you end up with
    `<vault>/.obsidian/plugins/obsidian-spoiler-plugin/` containing `main.js` and
