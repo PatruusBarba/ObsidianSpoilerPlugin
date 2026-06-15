@@ -1,0 +1,17 @@
+# intellij
+.idea
+
+# npm
+node_modules
+package-lock.json
+
+# build output
+main.js
+*.js.map
+
+# obsidian
+data.json
+
+# misc
+.DS_Store
+task.md
