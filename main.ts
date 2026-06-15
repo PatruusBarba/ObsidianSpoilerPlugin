@@ -66,8 +66,8 @@ export default class SpoilerPlugin extends Plugin {
 		});
 
 		this.addCommand({
-			id: "toggle-spoiler",
-			name: "Toggle spoiler on selection",
+			id: "toggle",
+			name: "Toggle on selection",
 			editorCallback: (editor) => this.toggleSpoiler(editor),
 		});
 	}
