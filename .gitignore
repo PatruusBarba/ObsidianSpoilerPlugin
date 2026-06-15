@@ -8,6 +8,8 @@ package-lock.json
 # build output
 main.js
 *.js.map
+build/
+*.zip
 
 # obsidian
 data.json
