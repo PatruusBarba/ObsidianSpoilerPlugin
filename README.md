@@ -5,6 +5,8 @@ text in your notes with a single click. Select some text, press the ribbon
 button, and the selection is wrapped in a collapsible **spoiler** callout. Press
 it again on a spoiler and it gets unwrapped back to plain text.
 
+![Demo of the spoiler plugin toggling a selection in Obsidian](Demo.gif)
+
 ## Features
 
 - Adds a button to the left ribbon (near *Open daily note*).
