@@ -16,9 +16,8 @@ it again on a spoiler and it gets unwrapped back to plain text.
 
 ## Spoiler format
 
-The plugin wraps your selection in a collapsible `spoiler` callout. Each line of
-the selection becomes a callout line, so any markdown inside it (headings, lists,
-code blocks, …) is preserved:
+The plugin wraps your selection in a collapsible `spoiler` callout, preserving
+any markdown inside it:
 
 ```markdown
 > [!spoiler]-
@@ -26,12 +25,7 @@ code blocks, …) is preserved:
 ```
 
 In reading view this renders as a collapsed callout; click it to reveal the
-hidden contents. The `-` after `[!spoiler]` is what makes the callout start
-collapsed.
-
-Unwrapping is the exact inverse — it removes the callout markers and returns
-your original text untouched, so wrapping and then unwrapping a selection always
-gives back exactly what you started with.
+contents.
 
 ## Usage
 
