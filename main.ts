@@ -17,26 +17,28 @@ export function isSpoiler(text: string): boolean {
 }
 
 /**
- * Wraps arbitrary text in a collapsible spoiler callout containing a fenced
- * code block:
+ * Wraps arbitrary text in a collapsible spoiler callout. Each line of the
+ * selection becomes a callout continuation line, so the markdown inside the
+ * spoiler is preserved:
  *
  * ```
  * > [!spoiler]-
- * >```
- * >selected text
- * >```
+ * > selected text
  * ```
  */
 export function wrapSpoiler(text: string): string {
-	const body = text.split("\n").map((line) => ">" + line).join("\n");
-	return ["> [!spoiler]-", ">```", body, ">```"].join("\n");
+	const body = text
+		.split("\n")
+		.map((line) => (line === "" ? ">" : "> " + line))
+		.join("\n");
+	return "> [!spoiler]-\n" + body;
 }
 
 /**
  * Reverses {@link wrapSpoiler}: strips the callout markers, drops the
- * `[!spoiler]` header and the surrounding code fence, and returns the inner
- * content. Falls back to simply removing the callout markers if the body is not
- * a fenced code block.
+ * `[!spoiler]` header and returns the inner content. For backwards
+ * compatibility it also strips a surrounding fenced code block if one is
+ * present (the format used by earlier versions).
  */
 export function unwrapSpoiler(text: string): string {
 	// Remove the callout marker (`> ` or `>`) from every line.
