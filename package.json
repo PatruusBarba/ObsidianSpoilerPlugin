@@ -1,6 +1,6 @@
 {
 	"name": "obsidian-spoiler-plugin",
-	"version": "1.0.0",
+	"version": "0.2.0",
 	"description": "Wrap selected text in a collapsible spoiler callout, or unwrap an existing spoiler, from a ribbon button.",
 	"main": "main.js",
 	"scripts": {
