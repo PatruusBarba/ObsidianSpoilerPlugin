@@ -39,11 +39,10 @@ contents.
 
 ### From a release (recommended)
 
-1. Download `obsidian-spoiler-plugin_v0.2.1.zip` from the
+1. Download `main.js` and `manifest.json` from the
    [latest release](https://github.com/PatruusBarba/ObsidianSpoilerPlugin/releases/latest).
-2. Unzip it into your vault's plugins folder so you end up with
-   `<vault>/.obsidian/plugins/spoiler/` containing `main.js` and
-   `manifest.json`.
+2. Put both files in your vault at
+   `<vault>/.obsidian/plugins/spoiler/`.
 3. Reload Obsidian and enable **Spoiler** in *Settings → Community plugins*
    (you may need to turn off *Restricted mode* first).
 
